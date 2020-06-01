@@ -1,28 +1,31 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div id="app">
+		<Header></Header>
+		<router-view></router-view>
+		<Footer v-show="!$route.meta.isHiedFooter"></Footer>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+	import Header from './components/Header/Header'
+	import Footer from './components/Footer/Footer'
+	// import {reqBaseCategroy,reqLogin} from './api/index'
+	// import  from './store/store'
+    export default {
+        name: "App",
+		async mounted() {
+            // const result = await reqBaseCategroy()
+			// console.log('result',result.data)
+			// const result2 = await reqLogin('13700000000',111111)
+			// console.log('result2',result2.data)
+		},
+		components:{
+            Header,
+			Footer
+		}
+    }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
 </style>
